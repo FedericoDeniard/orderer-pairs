@@ -21,7 +21,7 @@ def multiply_sets(A: list,B: list) -> list:
             C.append(result)
     return C
 
-def relationship(A,B):
+def relationship(A: list,B: list) -> list:
     C = []
 
     print("Escribe el operador relacional")
