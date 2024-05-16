@@ -44,7 +44,6 @@ def relationship(A: list,B: list) -> list:
                 case ">":
                     match operador_y:
                         case "+":
-                            system("pause")
                             if a > (b+modificador_y):
                                 C.append([a,b])
                         case "-":
