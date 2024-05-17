@@ -23,7 +23,10 @@ def main():
                 matrix = relationship_matrix(A, B, result, relation)
                 formatted_matrix = show_array(matrix)
                 print(f"Mr: \n{formatted_matrix}")
-
+                domain = get_domain(result)
+                set_range = get_range(result)
+                print(f"El dominio es: {domain}")
+                print(f"La imagen es: {set_range}")
             case 2:
                 result = multiply_sets(B, A)
                 print(f"BxA: {result}")
@@ -34,7 +37,10 @@ def main():
                 matrix = relationship_matrix(B, A, result, relation)
                 formatted_matrix = show_array(matrix)
                 print(f"Mr: \n{formatted_matrix}")
-
+                domain = get_domain(result)
+                set_range = get_range(result)
+                print(f"El dominio es: {domain}")
+                print(f"La imagen es: {set_range}")
             case 3:
                 result = multiply_sets(A, A)
                 print(f"AxA: {result}")
@@ -45,7 +51,10 @@ def main():
                 matrix = relationship_matrix(A, A, result, relation)
                 formatted_matrix = show_array(matrix)
                 print(f"Mr: \n{formatted_matrix}")
-
+                domain = get_domain(result)
+                set_range = get_range(result)
+                print(f"El dominio es: {domain}")
+                print(f"La imagen es: {set_range}")
             case 4:
                 result = multiply_sets(B, B)
                 print(f"BxB: {result}")
@@ -56,7 +65,10 @@ def main():
                 matrix = relationship_matrix(B, B, result, relation)
                 formatted_matrix = show_array(matrix)
                 print(f"Mr: \n{formatted_matrix}")
-
+                domain = get_domain(result)
+                set_range = get_range(result)
+                print(f"El dominio es: {domain}")
+                print(f"La imagen es: {set_range}")
             case 5:
                 print("Conjunto A:")
                 A = get_set()

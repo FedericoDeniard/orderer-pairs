@@ -101,3 +101,11 @@ def show_array(array: list):
         else:
             message += "\n  "
     return message
+
+def get_domain(C: list) -> set:
+    domain = {pair[0] for pair in C}
+    return domain
+
+def get_range(C: list) -> set:
+    range = {pair[1] for pair in C}
+    return range
