@@ -17,6 +17,7 @@ def main():
                 result = multiply_sets(A, B)
                 print(f"AxB: {result}")
                 relation = relationship(A, B)
+                system("cls")
                 print(f"AxB: {result}")
                 print(f"R: {relation}")
                 matrix = relationship_matrix(A, B, result, relation)
@@ -27,6 +28,7 @@ def main():
                 result = multiply_sets(B, A)
                 print(f"BxA: {result}")
                 relation = relationship(B, A)
+                system("cls")
                 print(f"BxA: {result}")
                 print(f"R: {relation}")
                 matrix = relationship_matrix(B, A, result, relation)
@@ -37,6 +39,7 @@ def main():
                 result = multiply_sets(A, A)
                 print(f"AxA: {result}")
                 relation = relationship(A, A)
+                system("cls")
                 print(f"AxA: {result}")
                 print(f"R: {relation}")
                 matrix = relationship_matrix(A, A, result, relation)
@@ -47,6 +50,7 @@ def main():
                 result = multiply_sets(B, B)
                 print(f"BxB: {result}")
                 relation = relationship(B, B)
+                system("cls")
                 print(f"BxB: {result}")
                 print(f"R: {relation}")
                 matrix = relationship_matrix(B, B, result, relation)
@@ -62,3 +66,4 @@ def main():
             case 6:
                 run = False
         system("pause")
+main()
