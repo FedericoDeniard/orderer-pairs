@@ -29,143 +29,28 @@ def multiply_sets(A: list,B: list) -> list:
 def relationship(A: list,B: list) -> list:
     C = []
 
-    print("Escribe el operador relacional")
-    relational_operator = input("x '> / < / >= / <= / = / !=' y\n")
-    while relational_operator not in [">","<",">=","<=","=","!="]:
-        relational_operator = input("x '> / < / >= / <= / = / !=' y\n")
-
-    print("Agregar un operador a Y\n(aprete enter para omitir)")
-    operador_y = input("'+ / - / * / % / ^'\n")
-    while operador_y not in ["","+","-","*","%","^"] :
-        operador_y = input("'+ / - / * / % / ^'\n")
-    if operador_y != "":
-        modificador_y = get_int(f"Agregue un valor para z:\n 'x {relational_operator} y{operador_y}z'\n")
+    while True:
+        equation = input("Escriba la ecuación (la multiplicación es *): \n")
+        safe_dict = {}
+        x = 1
+        y = 1
+        safe_dict['x'] = x
+        safe_dict['y'] = y
+        try:
+            eval(equation)
+            break
+        except SyntaxError:
+            print("Error: La ecuación es invalida. Por favor, intentelo nuevamente.")
 
     for a in A:
-        a = int(a)
         for b in B:
-            b = int(b)
-            match relational_operator:
-                case ">":
-                    match operador_y:
-                        case "+":
-                            if a > (b+modificador_y):
-                                C.append([a,b])
-                        case "-":
-                            if a > (b-modificador_y):
-                                C.append([a,b])
-                        case "*":
-                            if a > (b*modificador_y):
-                                C.append([a,b])
-                        case "%":
-                            if a > (b/modificador_y):
-                                C.append([a,b])
-                        case "^":
-                            if a > (b**modificador_y):
-                                C.append([a,b])
-                        case _:
-                            if a > b:
-                                C.append([a,b])
-                case "<":
-                    match operador_y:
-                        case "+":
-                            if a < (b+modificador_y):
-                                C.append([a,b])
-                        case "-":
-                            if a < (b-modificador_y):
-                                C.append([a,b])
-                        case "*":
-                            if a < (b*modificador_y):
-                                C.append([a,b])
-                        case "%":
-                            if a < (b/modificador_y):
-                                C.append([a,b])
-                        case "^":
-                            if a < (b**modificador_y):
-                                C.append([a,b])
-                        case _:
-                            if a < b:
-                                C.append([a,b])
-                case ">=":
-                    match operador_y:
-                        case "+":
-                            if a >= (b+modificador_y):
-                                C.append([a,b])
-                        case "-":
-                            if a >= (b-modificador_y):
-                                C.append([a,b])
-                        case "*":
-                            if a >= (b*modificador_y):
-                                C.append([a,b])
-                        case "%":
-                            if a >= (b/modificador_y):
-                                C.append([a,b])
-                        case "^":
-                            if a >= (b**modificador_y):
-                                C.append([a,b])
-                        case _:
-                            if a >= b:
-                                C.append([a,b])
-                case "<=":
-                    match operador_y:
-                        case "+":
-                            if a <= (b+modificador_y):
-                                C.append([a,b])
-                        case "-":
-                            if a <= (b-modificador_y):
-                                C.append([a,b])
-                        case "*":
-                            if a <= (b*modificador_y):
-                                C.append([a,b])
-                        case "%":
-                            if a <= (b/modificador_y):
-                                C.append([a,b])
-                        case "^":
-                            if a <= (b**modificador_y):
-                                C.append([a,b])
-                        case _:
-                            if a <= b:
-                                C.append([a,b])
-                case "=":
-                    match operador_y:
-                        case "+":
-                            if a == (b+modificador_y):
-                                C.append([a,b])
-                        case "-":
-                            if a == (b-modificador_y):
-                                C.append([a,b])
-                        case "*":
-                            if a == (b*modificador_y):
-                                C.append([a,b])
-                        case "%":
-                            if a == (b/modificador_y):
-                                C.append([a,b])
-                        case "^":
-                            if a == (b**modificador_y):
-                                C.append([a,b])
-                        case _:
-                            if a == b:
-                                C.append([a,b])
-                case "!=":
-                    match operador_y:
-                        case "+":
-                            if a != (b+modificador_y):
-                                C.append([a,b])
-                        case "-":
-                            if a != (b-modificador_y):
-                                C.append([a,b])
-                        case "*":
-                            if a != (b*modificador_y):
-                                C.append([a,b])
-                        case "%":
-                            if a != (b/modificador_y):
-                                C.append([a,b])
-                        case "^":
-                            if a != (b**modificador_y):
-                                C.append([a,b])
-                        case _:
-                            if a != b:
-                                C.append([a,b])
+            x = int(a)
+            y = int(b)
+            safe_dict['x'] = x
+            safe_dict['y'] = y
+            if eval(equation, {"__builtins__": None}, safe_dict):
+                C.append([a, b])
+
     return C
 
 def relationship_matrix(A: list, B:list, AxB: list, C: list) -> list:
