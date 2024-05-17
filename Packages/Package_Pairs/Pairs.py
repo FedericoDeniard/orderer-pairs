@@ -8,8 +8,8 @@ def get_set():
         number = input("Ingrese un valor para el cojunto\n(aprete enter para omitir)\n")
         if not validate_number(number):
             break
+        number = int(number)
         if number not in A:
-            number = int(number)
             A.append(number)
         else:
             print(f"{number} ya se encuentra en el conjunto")
