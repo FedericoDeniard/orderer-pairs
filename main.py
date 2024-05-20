@@ -1,5 +1,6 @@
 from Packages.Package_Pairs.Pairs import *
 from os import system
+from os import name
 
 def main():
     print("Conjunto A:")
@@ -9,7 +10,7 @@ def main():
     run = True
 
     while run:
-        system("cls")
+        system("clear")
         print(f"A={A}\nB={B}")
         option = get_int(message="Seleccione una opcion\n1. AxB\n2. BxA\n3. AxA\n4. BxB\n5. Cambiar valores\n6. Salir\n",min=1,max=6)
         match option:
@@ -17,7 +18,7 @@ def main():
                 result = multiply_sets(A, B)
                 print(f"AxB: {result}")
                 relation = relationship(A, B)
-                system("cls")
+                system("clear")
                 print(f"AxB: {result}")
                 print(f"R: {relation}")
                 matrix = relationship_matrix(A, B, result, relation)
@@ -31,7 +32,7 @@ def main():
                 result = multiply_sets(B, A)
                 print(f"BxA: {result}")
                 relation = relationship(B, A)
-                system("cls")
+                system("clear")
                 print(f"BxA: {result}")
                 print(f"R: {relation}")
                 matrix = relationship_matrix(B, A, result, relation)
@@ -45,7 +46,7 @@ def main():
                 result = multiply_sets(A, A)
                 print(f"AxA: {result}")
                 relation = relationship(A, A)
-                system("cls")
+                system("clear")
                 print(f"AxA: {result}")
                 print(f"R: {relation}")
                 matrix = relationship_matrix(A, A, result, relation)
@@ -59,7 +60,7 @@ def main():
                 result = multiply_sets(B, B)
                 print(f"BxB: {result}")
                 relation = relationship(B, B)
-                system("cls")
+                system("clear")
                 print(f"BxB: {result}")
                 print(f"R: {relation}")
                 matrix = relationship_matrix(B, B, result, relation)
@@ -77,5 +78,8 @@ def main():
 
             case 6:
                 run = False
-        system("pause")
+        input("Presione una tecla para continuar...")
 main()
+
+if __name__ == '__main__':
+    main()

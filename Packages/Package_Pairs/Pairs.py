@@ -13,8 +13,8 @@ def get_set():
             A.append(number)
         else:
             print(f"{number} ya se encuentra en el conjunto")
-            system("pause")
-        system("cls")
+            input("Presione una tecla para continuar...")
+        system("clear")
     
     return A
 
@@ -30,7 +30,7 @@ def relationship(A: list,B: list) -> list:
     C = []
 
     while True:
-        equation = input("Escriba la ecuación (la multiplicación es *): \n")
+        equation = input("Escriba la ecuación. ej: x > y-2 . (la multiplicación es *): \n")
         safe_dict = {}
         x = 1
         y = 1

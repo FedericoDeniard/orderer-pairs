@@ -21,8 +21,8 @@ def get_int(message: str, error_message = "Error", attempts = 0, min = True, max
             number = None
             break
         print(error_message)
-        system("pause")
-        system("cls")
+        input("Presione una tecla para continuar...")
+        system("clear")
         number = input(message)
         attempt +=1        
     if number != None:
