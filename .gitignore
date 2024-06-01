@@ -6,3 +6,4 @@ build
 message.txt
 buildozer.spec
 .buildozer
+myenv

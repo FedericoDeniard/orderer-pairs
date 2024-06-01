@@ -56,6 +56,8 @@ def main():
                 set_range = get_range(result)
                 print(f"El dominio es: {domain}")
                 print(f"La imagen es: {set_range}")
+                properties = relation_properties(A,relation)
+                print(properties)
             case 4:
                 result = multiply_sets(B, B)
                 print(f"BxB: {result}")

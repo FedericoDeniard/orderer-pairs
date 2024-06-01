@@ -107,3 +107,34 @@ def get_domain(C: list) -> set:
 def get_range(C: list) -> set:
     range = {pair[1] for pair in C}
     return range
+
+def relation_properties(A: list, B: list):
+    message = []
+    message.append(reflexive_property(A,B))
+
+    return message
+
+
+def reflexive_property(A: list,B: list) -> str:
+    reflexives = []
+    message = ""
+    for i in range(len(A)):
+        if [A[i], A[i]] in B:
+            reflexives.append([A[i],A[i]])
+    if len(reflexives) == len(A):
+        message = "Reflexiva"
+    elif len(reflexives) > 0:
+        message = "No reflexiva"
+    else:
+        message = "Areflexiva"
+    return message
+
+def simetric_property(A: list, B: list) -> str:
+    simetrics = []
+    message = ""
+    for i in range(len(A)):
+        for j in range(len(A)):
+            if [A[j],[i]] in B:
+                simetrics.append([A[i],A[j]])
+    if len(simetrics) == len(A)**2:
+        pass
