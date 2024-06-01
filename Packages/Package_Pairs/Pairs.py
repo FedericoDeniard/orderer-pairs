@@ -31,13 +31,12 @@ def relationship(A: list,B: list) -> list:
 
     while True:
         equation = input("Escriba la ecuación. ej: x > y-2 . (la multiplicación es *): \n")
-        safe_dict = {}
         x = 1
         y = 1
-        safe_dict['x'] = x
-        safe_dict['y'] = y
+        safe_dict = {'x' : x, 'y' : y}
+
         try:
-            eval(equation)
+            eval(equation, {"__builtins__": None}, safe_dict)
             break
         except SyntaxError:
             print("Error: La ecuación es invalida. Por favor, intentelo nuevamente.")
@@ -46,8 +45,7 @@ def relationship(A: list,B: list) -> list:
         for b in B:
             x = int(a)
             y = int(b)
-            safe_dict['x'] = x
-            safe_dict['y'] = y
+            safe_dict = {'x' : x, 'y' : y}
             if eval(equation, {"__builtins__": None}, safe_dict):
                 C.append([a, b])
 
