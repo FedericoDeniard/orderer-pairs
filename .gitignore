@@ -3,3 +3,6 @@ Packages/Package_Pairs/__pycache__
 Packages/Package_Input/__pycache__
 dist
 build
+message.txt
+buildozer.spec
+.buildozer
