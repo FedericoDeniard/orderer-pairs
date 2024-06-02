@@ -72,6 +72,8 @@ def main():
                 set_range = get_range(result)
                 print(f"El dominio es: {domain}")
                 print(f"La imagen es: {set_range}")
+                properties = relation_properties(A,relation)
+                print(properties)
             case 5:
                 print("Conjunto A:")
                 A = get_set()

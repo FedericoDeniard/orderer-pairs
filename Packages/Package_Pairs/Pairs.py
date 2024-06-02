@@ -111,7 +111,9 @@ def get_range(C: list) -> set:
 def relation_properties(A: list, B: list):
     message = []
     message.append(reflexive_property(A,B))
-
+    message.append(symmetric_property(A,B))
+    message.append(transitive_property(A,B))
+    message = " | ".join(message)
     return message
 
 
@@ -129,12 +131,51 @@ def reflexive_property(A: list,B: list) -> str:
         message = "Areflexiva"
     return message
 
-def simetric_property(A: list, B: list) -> str:
+def symmetric_property(A: list, B: list) -> str:
     simetrics = []
-    message = ""
+    message = "x"
     for i in range(len(A)):
         for j in range(len(A)):
-            if [A[j],[i]] in B:
+            if [A[i],A[j]] in B and [A[j],A[i]] in B:
                 simetrics.append([A[i],A[j]])
-    if len(simetrics) == len(A)**2:
-        pass
+
+    all_symmetric = True
+    for a in A:
+        has_symmetric = False
+        for b in A:
+            if [a,b] in B and [b,a] in B:
+                has_symmetric = True
+                break
+        if not has_symmetric:
+            all_symmetric = False
+            break
+    
+    anti_symmetric = True
+
+    for a in A:
+        for b in A:
+            if b != a and [b,a] in B and [a,b] in B:
+                anti_symmetric = False
+                break
+        if not anti_symmetric:
+            break        
+
+    if all_symmetric:
+        message = "Simétrica"
+    elif len(simetrics) > 0:
+        message = "No simétrica"
+    else:
+        message = "Asimétrica"
+
+    message2 = "Antisimétrica" if anti_symmetric else ""
+    return message + " " + message2
+
+def transitive_property(A: list, B: list) -> str:
+    message = "Transitiva"
+    for i in range(len(A)):
+        for j in range(len(A)):
+            for k in range(len(A)):
+                if [A[j], A[k]] in B and [A[j], A[j]] in B:
+                    if [A[i], A[k]] not in B:
+                        return "No transitiva"
+    return message
