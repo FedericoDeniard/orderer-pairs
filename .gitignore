@@ -7,3 +7,4 @@ message.txt
 buildozer.spec
 .buildozer
 myenv
+setup.py
