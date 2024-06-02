@@ -1,14 +1,15 @@
-import os
+import platform
 from os import system
 
 def clear_screen():
-    if os.name == "nt":
-        system("cls")
+    os_name = platform.system()
+    if os_name == "Windows":
+        clear_screen()
     else:
         system("clear")
 
 def pause(message = "Presione una tecla para continuar...\n"):
-    if os.name == "nt":
+    if platform.system == "nt":
         system("pause")
     else:
         input(message)
