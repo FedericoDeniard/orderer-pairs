@@ -28,6 +28,8 @@ def main():
                 set_range = get_range(result)
                 print(f"El dominio es: {domain}")
                 print(f"La imagen es: {set_range}")
+                properties = relation_properties(A, B,relation)
+                print(properties)
             case 2:
                 result = multiply_sets(B, A)
                 print(f"BxA: {result}")
@@ -42,6 +44,8 @@ def main():
                 set_range = get_range(result)
                 print(f"El dominio es: {domain}")
                 print(f"La imagen es: {set_range}")
+                properties = relation_properties(B, A,relation)
+                print(properties)
             case 3:
                 result = multiply_sets(A, A)
                 print(f"AxA: {result}")
@@ -56,7 +60,7 @@ def main():
                 set_range = get_range(result)
                 print(f"El dominio es: {domain}")
                 print(f"La imagen es: {set_range}")
-                properties = relation_properties(A,relation)
+                properties = relation_properties(A, B,relation)
                 print(properties)
             case 4:
                 result = multiply_sets(B, B)
@@ -72,7 +76,7 @@ def main():
                 set_range = get_range(result)
                 print(f"El dominio es: {domain}")
                 print(f"La imagen es: {set_range}")
-                properties = relation_properties(A,relation)
+                properties = relation_properties(B,A,relation)
                 print(properties)
             case 5:
                 print("Conjunto A:")
