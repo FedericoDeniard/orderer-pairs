@@ -129,25 +129,57 @@ def reflexive_property(A: list,B: list) -> str:
 
 def symmetric_property( C: list) -> str:
     is_symmetric = True
+    has_symmetric = False
     is_antisymmetric = True
     
     for a, b in C:
-        if [b, a] not in C:
+        if [b, a] not in C and is_symmetric:
             is_symmetric = False
+        elif [b,a] in C and has_symmetric == False:
+            has_symmetric = True
         if a != b and [b, a] in C:
             is_antisymmetric = False
     
     if is_symmetric:
-        return "Simétrica."
+        return "Simétrica"
     elif is_antisymmetric:
-        return "Antisimétrica."
+        return "Antisimétrica"
+    elif has_symmetric:
+        return "Asimétrica"
     else:
         return "No simétrica"
 
 def transitive_property(C: list) -> str:
+    has_transitive = False
+    is_transitive = True
     for x in C:
         for y in C:
             if x[1] == y[0]:
                 if [x[0], y[1]] not in C:
-                    return 'No transitiva'
-    return 'Transitiva'
+                    is_transitive = False
+                else:
+                    has_transitive = True
+    message = ""
+    if is_transitive:
+        message = "Transitiva"
+    elif has_transitive:
+        message = "No transitiva"
+    else:
+        message = "Atransitiva"
+    return message
+
+def relationship_clasify(properties: str,A: list, C: list) -> str:
+    message = ''
+    if 'Transitiva' in properties:
+        if ['Reflexiva', 'Simétrica'] in properties:
+            message = 'Relación de equivalencia'
+        elif ['Reflexiva', 'Antisimétrica'] in properties:
+            message = 'Relación de orden amplio'
+        elif ['Arreflexiva', 'Asimétrica'] in properties:
+            message = 'Relación de orden estricto'
+    if 'Relación de orden' in message:
+        if len(A) * len(A) == len(C):
+            message += ' total'
+        else:
+            message += ' parcial'
+    return message
